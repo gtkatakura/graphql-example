@@ -1,0 +1,43 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "23.3.9",
+    "@types/node": "10.12.5",
+    "@types/react": "16.7.3",
+    "@types/react-dom": "16.0.9",
+    "apollo-boost": "^0.1.20",
+    "react": "^16.6.1",
+    "react-apollo": "^2.2.4",
+    "react-dom": "^16.6.1",
+    "react-scripts": "2.1.1",
+    "typescript": "3.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "codegen:schema": "apollo-codegen introspect-schema http://localhost:4000 --output __generated__/schema.json",
+    "codegen:types": "apollo-codegen generate src/**/*.tsx --schema __generated__/schema.json --target typescript --output __generated__/graphql-types.ts",
+    "codegen:all": "npm run codegen:schema && npm run codegen:types",
+    "lint": "eslint --ext .tsx src/**/*.tsx"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/graphql": "^14.0.3",
+    "apollo-codegen": "^0.20.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-plugin-graphql": "^2.1.1"
+  },
+  "resolutions": {
+    "type-graphql/graphql": "^14.0.2"
+  }
+}

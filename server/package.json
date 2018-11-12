@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.5"
+  },
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "update-schema": "babel-node scripts/updateSchema.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.2.1",
+    "graphql": "^14.0.2"
+  }
+}
