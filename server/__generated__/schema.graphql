@@ -1,3 +1,18 @@
+type Item {
+  id: ID
+  quantity: Float
+  amount: Float
+}
+
+input ItemInput {
+  quantity: Float!
+  amount: Float!
+}
+
+type Mutation {
+  createItem(input: ItemInput): Item
+}
+
 type Query {
   """A simple type for getting started!"""
   hello: String
