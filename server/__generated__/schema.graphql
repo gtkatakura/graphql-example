@@ -1,19 +1,17 @@
-type Item {
+type Anime {
   id: ID
-  quantity: Float
-  amount: Float
+  name: String
+  episodes: Float
+  meanScore: Float
 }
 
-input ItemInput {
-  quantity: Float!
-  amount: Float!
-}
-
-type Mutation {
-  createItem(input: ItemInput): Item
+input MeanScoreFilter {
+  """Greater or equal"""
+  GTE: Float
 }
 
 type Query {
   """A simple type for getting started!"""
   hello: String
+  animes(meanScore: MeanScoreFilter): [Anime]
 }

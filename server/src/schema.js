@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLFloat,
   GraphQLList,
+  GraphQLInputObjectType,
 } from 'graphql'
 
 const AnimeType = new GraphQLObjectType({
@@ -43,7 +44,24 @@ export const schema = new GraphQLSchema({
       },
       animes: {
         type: new GraphQLList(AnimeType),
-        resolve: (_object, _args, _context) => {
+        args: {
+          meanScore: {
+            type: new GraphQLInputObjectType({
+              name: 'MeanScoreFilter',
+              fields: {
+                GTE: {
+                  type: GraphQLFloat,
+                  description: 'Greater or equal',
+                },
+              },
+            }),
+          },
+        },
+        resolve: (_object, args, _context) => {
+          if (args.meanScore) {
+            return animes.filter(anime => anime.meanScore >= args.meanScore.GTE)
+          }
+
           return animes
         }
       }
