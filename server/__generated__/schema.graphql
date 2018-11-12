@@ -5,6 +5,11 @@ type Anime {
   meanScore: Float
 }
 
+input MeanScoreFilter {
+  """Greater or equal"""
+  GTE: Float
+}
+
 type Query {
   """A simple type for getting started!"""
   hello: String

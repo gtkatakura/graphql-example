@@ -10,7 +10,7 @@
         {
           "kind": "OBJECT",
           "name": "Query",
-          "description": null,
+          "description": "",
           "fields": [
             {
               "name": "hello",
@@ -26,15 +26,30 @@
             },
             {
               "name": "animes",
-              "description": null,
-              "args": [],
+              "description": "",
+              "args": [
+                {
+                  "name": "meanScore",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "MeanScoreFilter",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Anime",
-                  "ofType": null
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Anime",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -57,13 +72,44 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "MeanScoreFilter",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "GTE",
+              "description": "Greater or equal",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Anime",
-          "description": null,
+          "description": "",
           "fields": [
             {
               "name": "id",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -75,7 +121,7 @@
             },
             {
               "name": "name",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -87,7 +133,7 @@
             },
             {
               "name": "episodes",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -99,7 +145,7 @@
             },
             {
               "name": "meanScore",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -119,16 +165,6 @@
           "kind": "SCALAR",
           "name": "ID",
           "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "Float",
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -944,8 +980,8 @@
       ],
       "directives": [
         {
-          "name": "include",
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "name": "skip",
+          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
           "locations": [
             "FIELD",
             "FRAGMENT_SPREAD",
@@ -954,7 +990,7 @@
           "args": [
             {
               "name": "if",
-              "description": "Included when true.",
+              "description": "Skipped when true.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -969,8 +1005,8 @@
           ]
         },
         {
-          "name": "skip",
-          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
           "locations": [
             "FIELD",
             "FRAGMENT_SPREAD",
@@ -979,7 +1015,7 @@
           "args": [
             {
               "name": "if",
-              "description": "Skipped when true.",
+              "description": "Included when true.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,

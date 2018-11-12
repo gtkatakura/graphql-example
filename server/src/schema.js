@@ -4,7 +4,7 @@ const typeDefs = `
   type Query {
     """A simple type for getting started!"""
     hello: String
-    animes: [Anime]!
+    animes(meanScore: MeanScoreFilter): [Anime]!
   }
 
   type Anime {
@@ -12,6 +12,11 @@ const typeDefs = `
     name: String
     episodes: Float
     meanScore: Float
+  }
+
+  input MeanScoreFilter {
+    """Greater or equal"""
+    GTE: Float
   }
 `
 
@@ -36,6 +41,10 @@ const resolvers = {
       return 'world'
     },
     animes: (_root, args, _context) => {
+      if (args.meanScore) {
+        return animes.filter(anime => anime.meanScore >= args.meanScore.GTE)
+      }
+
       return animes
     },
   },

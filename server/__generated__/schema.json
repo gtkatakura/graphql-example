@@ -944,6 +944,27 @@
             }
           ],
           "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "MeanScoreFilter",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "GTE",
+              "description": "Greater or equal",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
         }
       ],
       "directives": [
