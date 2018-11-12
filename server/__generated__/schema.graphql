@@ -1,4 +1,12 @@
+type Anime {
+  id: ID
+  name: String
+  episodes: Float
+  meanScore: Float
+}
+
 type Query {
   """A simple type for getting started!"""
   hello: String
+  animes: [Anime]!
 }
