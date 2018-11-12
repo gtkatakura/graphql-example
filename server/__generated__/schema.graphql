@@ -5,9 +5,19 @@ type Anime {
   meanScore: Float
 }
 
+input AnimeInput {
+  name: String!
+  episodes: Float!
+  meanScore: Float
+}
+
 input MeanScoreFilter {
   """Greater or equal"""
   GTE: Float
+}
+
+type Mutation {
+  createAnime(input: AnimeInput): Anime
 }
 
 type Query {

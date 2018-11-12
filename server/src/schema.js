@@ -6,6 +6,7 @@ import {
   GraphQLFloat,
   GraphQLList,
   GraphQLInputObjectType,
+  GraphQLNonNull,
 } from 'graphql'
 
 const AnimeType = new GraphQLObjectType({
@@ -14,6 +15,15 @@ const AnimeType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     episodes: { type: GraphQLFloat },
+    meanScore: { type: GraphQLFloat },
+  }
+})
+
+const AnimeInputType = new GraphQLInputObjectType({
+  name: 'AnimeInput',
+  fields: {
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    episodes: { type: new GraphQLNonNull(GraphQLFloat) },
     meanScore: { type: GraphQLFloat },
   }
 })
@@ -32,6 +42,8 @@ const animes = [
     meanScore: 84,
   }
 ]
+
+const newId = ((acc = 0) => () => ++acc)(2)
 
 export const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -67,4 +79,22 @@ export const schema = new GraphQLSchema({
       }
     }
   }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+      createAnime: {
+        type: AnimeType,
+        args: {
+          input: { type: AnimeInputType },
+        },
+        resolve: (_object, args, _context) => {
+          const newAnime = { ...args.input, id: newId() }
+
+          animes.push(newAnime)
+
+          return newAnime
+        },
+      }
+    }
+  })
 })
