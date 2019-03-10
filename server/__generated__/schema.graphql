@@ -10,7 +10,7 @@ input AnimeInput {
 }
 
 input MeanScoreFilter {
-  GTE: Float
+  gte: Int
 }
 
 type Mutation {
