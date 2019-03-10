@@ -2,13 +2,11 @@ type Anime {
   id: ID
   name: String
   episodes: Float
-  meanScore: Float
 }
 
 input AnimeInput {
   name: String
   episodes: Float
-  meanScore: Float
 }
 
 input MeanScoreFilter {
