@@ -8,7 +8,7 @@ type Anime {
 input AnimeInput {
   name: String
   episodes: Float
-  meanScores: Float
+  meanScore: Float
 }
 
 input MeanScoreFilter {
