@@ -2,26 +2,22 @@ type Anime {
   id: ID
   name: String
   episodes: Float
-  meanScore: Float
 }
 
 input AnimeInput {
-  name: String!
-  episodes: Float!
-  meanScore: Float
+  name: String
+  episodes: Float
 }
 
 input MeanScoreFilter {
-  """Greater or equal"""
-  GTE: Float
+  GTE: Float!
 }
 
 type Mutation {
-  createAnime(input: AnimeInput): Anime
+  createAnime(input: AnimeInput): Anime!
 }
 
 type Query {
-  """A simple type for getting started!"""
   hello: String
-  animes(meanScore: MeanScoreFilter): [Anime]
+  animes(meanScore: MeanScoreFilter): [Anime!]!
 }
