@@ -23,5 +23,5 @@ type Mutation {
 type Query {
   """A simple type for getting started!"""
   hello: String
-  animes(meanScore: MeanScoreFilter): [Anime]
+  animes(meanScore: MeanScoreFilter): [Anime!]!
 }
