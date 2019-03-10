@@ -1,7 +1,7 @@
 type Anime {
-  id: ID
-  name: String
-  episodes: Float
+  id: ID!
+  name: String!
+  episodes: Float!
 }
 
 input AnimeInput {
