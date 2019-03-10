@@ -13,11 +13,11 @@ input AnimeInput {
 
 input MeanScoreFilter {
   """Greater or equal"""
-  GTE: Float
+  GTE: Float!
 }
 
 type Mutation {
-  createAnime(input: AnimeInput): Anime
+  createAnime(input: AnimeInput): Anime!
 }
 
 type Query {
