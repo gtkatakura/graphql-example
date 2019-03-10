@@ -6,11 +6,11 @@ type Anime {
 
 input AnimeInput {
   name: String
-  episodes: Float
+  episodes: [Float]
 }
 
 input MeanScoreFilter {
-  GTE: Float!
+  GTE: Float
 }
 
 type Mutation {
