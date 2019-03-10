@@ -6,9 +6,9 @@ type Anime {
 }
 
 input AnimeInput {
-  name: String
-  episodes: Float
-  meanScores: Float
+  name: String!
+  episodes: Float!
+  meanScores: Float!
 }
 
 input MeanScoreFilter {
