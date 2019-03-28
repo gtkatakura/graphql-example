@@ -4,7 +4,7 @@ import './App.css'
 import ApolloClient, { gql } from 'apollo-boost'
 import { ApolloProvider, Query, QueryResult } from 'react-apollo'
 
-import { HelloWorldQuery } from '../__generated__/graphql-types'
+import { HelloWorldQuery } from './__generated__/HelloWorldQuery'
 
 const client = new ApolloClient({ uri: 'http://localhost:4000' })
 
