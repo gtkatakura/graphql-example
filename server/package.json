@@ -13,7 +13,7 @@
     "update-schema": "babel-node scripts/updateSchema.js"
   },
   "dependencies": {
-    "apollo-server": "^2.2.1",
+    "apollo-server": "^2.14.2",
     "graphql": "^14.0.2"
   }
 }
